@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Javascript</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+
+		function add() {
+			let a, b, c;
+			a = parseInt(document.frm.t1.value)
+			b = parseInt(document.frm.t2.value)
+			c = a + b;
+			document.frm.t3.value = c
+		}
+		function sub() {
+			let a, b, c;
+			a = parseInt(document.frm.t1.value)
+			b = parseInt(document.frm.t2.value)
+			c = a - b;
+			document.frm.t3.value = c
+		}
+		function mul() {
+			let a, b, c;
+			a = parseInt(document.frm.t1.value)
+			b = parseInt(document.frm.t2.value)
+			c = a * b;
+			document.frm.t3.value = c
+		}
+		function div() {
+			let a, b, c;
+			a = parseInt(document.frm.t1.value)
+			b = parseInt(document.frm.t2.value)
+			c = a / b;
+			document.frm.t3.value = c
+		}
+		function Percentage() {
+			let a, b, c, d;
+			a = parseInt(document.frm.t1.value)
+			b = parseInt(document.frm.t2.value)
+			c = a % b;
+			// d=c/200*100
+			document.frm.t3.value = c
+		}
+	</script>
+	<form name="frm">
+		A:<input type="text" name="t1"><br><br>
+		B:<input type="text" name="t2"><br><br>
+		<input type="button" value="+" onclick="add()">
+		<input type="button" value="-" onclick="sub()">
+		<input type="button" value="*" onclick="mul()">
+		<input type="button" value="/" onclick="div()">
+		<input type="button" value="%" onclick="Percentage()"><br><br>
+		<input type="text" name="t3">
+	</form>
+
+</body>
+
+</html>

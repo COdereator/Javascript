@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<script>
+		function findMax() {
+			var max1 = []
+
+			for (var i = 0; i < 5; i++) {
+				max1.push(Number(prompt("Enter the Grade" + (i + 1))));
+			}
+			var checkMax = max1[0];
+			for (var k = 0; k < max1.length; k++) {
+				if (max1[k] > checkMax) {
+					checkMax = max1[k];
+				}
+			}
+			document.getElementById("mx").innerHTML = `Array : ${max1} <br> Max Value : ${checkMax}`;
+		}
+		function findMin() {
+			var min1 = []
+
+			for (var i = 0; i < 5; i++) {
+				min1.push(Number(prompt("Enter the Grade" + (i + 1))));
+			}
+			var checkMin = min1[0];
+			for (var k = 0; k < min1.length; k++) {
+				if (min1[k] < checkMin) {
+					checkMin = min1[k];
+				}
+			}
+			document.getElementById("mn").innerHTML = `Array : ${min1} <br> Min Value : ${checkMin}`;
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<input type="button" value="Find Max" onclick="findMax()">
+		<p id="mx"></p>
+		<input type="button" value="Find Min" onclick="findMin()">
+		<p id="mn"></p>
+
+	</form>
+
+</body>
+
+</html>

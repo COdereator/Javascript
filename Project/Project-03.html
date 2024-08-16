@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title></title>
+	<style>
+		* {
+			box-size: borderbox;
+		}
+
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-color: rgb(243, 243, 243);
+			font-family: Tahoma, Geneva, sans-serif;
+		}
+
+		p {
+			display: inline-block;
+			margin: 0px;
+			font-size: 16px;
+			color: red;
+		}
+
+		form {
+			width: 500px;
+			background-color: rgb(210, 255, 210);
+			margin: auto;
+		}
+
+		h1 {
+			text-align: center;
+			line-height: 24px;
+			margin: 0px 0px 2px 0px;
+		}
+
+		h3 {
+			text-align: center;
+			line-height: 24px;
+			font-color: rgb(243, 243, 243);
+			margin: 10px 0px 10px 0px;
+		}
+
+		#container {
+			width: 500px;
+			padding: 20px;
+		}
+
+		.textbox {
+			width: 220px;
+			height: 25px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: blue;
+			border-bottom-color: blue;
+		}
+
+		.email {
+			width: 450px;
+			height: 25px;
+			font-size: 16px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: blue;
+			border-bottom-color: blue;
+		}
+
+		.pass {
+			width: 450px;
+			height: 25px;
+			font-size: 16px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: blue;
+			border-bottom-color: blue;
+		}
+
+		select {
+			font-size: 16px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: blue;
+			border-bottom-color: blue;
+		}
+
+		.textbox:hover {
+			width: 220px;
+			height: 25px;
+			font-size: 16px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: green;
+			border-bottom-color: green;
+
+		}
+
+		.email:hover {
+			width: 450px;
+			height: 25px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: green;
+			border-bottom-color: green;
+		}
+
+		.pass:hover {
+			width: 450px;
+			height: 25px;
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: green;
+			border-bottom-color: green;
+		}
+
+		select:hover {
+			font-size: 16px;
+			border-top-width: 0px;
+			border-right-width: 0px;
+			border-left-width: 5px;
+			border-bottom-width: 1px;
+			border-style: solid;
+			border-left-color: green;
+			border-bottom-color: green;
+		}
+
+		#capcha {
+			font-size: 24px;
+			font-weight: bold;
+			font-style: italic;
+
+		}
+
+		#signup {
+			width: 450px;
+			height: 40px;
+			background-color: #3B5998;
+			color: white;
+			font-size: 16px;
+		}
+
+		#ref {
+			width: 60px;
+		}
+
+		#capcha1 {
+			font-size: 28px;
+			font-style: bold;
+			color: black;
+
+		}
+
+		#demo {
+			font-size: 16px;
+			color: red;
+		}
+
+		#DOB {
+			color: black;
+			font-size: 18px;
+		}
+	</style>
+	<script>
+
+		var otpArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+		var st = "";
+		function getOTP() {
+			var otpData = ""
+			for (i = 1; i <= 6; i++) {
+				otpData = otpData + otpArray[Math.floor(Math.random() * otpArray.length)];
+			}
+			document.getElementById("capcha1").innerHTML = otpData;
+			//return otpData;
+			st = otpData
+
+		}
+
+		function signUp() {
+			var fname = document.frm.fname.value;
+			var lname = document.frm.lname.value;
+			var gFM = document.frm.gender.value;
+			var femail = document.frm.email_1.value;
+			var semail = document.frm.email_2.value;
+			var pass1 = document.frm.fpass1.value;
+			var pass2 = document.frm.spass2.value;
+			var mNO = document.frm.mno.value;
+			var cap1 = document.frm.capcha.value;
+
+
+			//first & Last Name Validation
+			if (fname == "") {
+				document.getElementById("fname").innerHTML = "Please Enter the First Name";
+
+				return false;
+			}
+			else if (lname == "") {
+				document.getElementById("fname").innerHTML = "Please Enter the Last Name";
+				return false;
+			}
+			//Gender Validation
+			else if (gFM == "") {
+				document.getElementById("gender").innerHTML = "Please select the Gender";
+				return false;
+			}
+			// else document.getElementById("gender").innerHTML = "";
+
+			//Email Validation 
+			else if (femail == "") {
+				document.getElementById("email_2").innerHTML = "Please Enter Your Email ID";
+
+				return false;
+			}
+			else if (semail == "") {
+				document.getElementById("email_2").innerHTML = "Please Re-Enter Your Email ID";
+
+				return false;
+			}
+			else if (femail !== semail) {
+				document.getElementById("email_2").innerHTML = "Email ID Not Matched";
+
+				return false;
+			}
+			//else document.getElementById("email_2").innerHTML = "";
+
+			//password Validation
+			else if (pass1 == "" && pass2 == "") {
+				document.getElementById("pass2").innerHTML = "Please Enter password";
+				return false;
+			}
+			else if (document.frm.fpass1.value.length < 8) {
+				document.getElementById("pass2").innerHTML = "Password Length should be 8 digit long";
+				return false;
+			}
+			else if (pass1 == "" || pass2 == "") {
+				document.getElementById("pass2").innerHTML = "Please Enter password";
+				return false;
+			}
+			else if (pass1 !== pass2) {
+				document.getElementById("pass2").innerHTML = "Password Not Matched";
+				return false;
+			}
+			//else document.getElementById("pass2").innerHTML = "";
+
+
+			//Mobile No Validation
+			else if (mNO == "") {
+				document.querySelector('#mno1').textContent = "Please Enter the Mobile Number";
+				return false;
+			}
+
+			else if (document.frm.mno.value.length < 10 || document.frm.mno.value.length > 10) {
+				document.querySelector('#mno1').textContent = "Please Enter Valid Mobile No.";
+				return false;
+			}
+			else if (isNaN(document.getElementById("mobile").value) == true) {
+				document.querySelector('#mno1').textContent = "Please Enter valid Number";
+				return false;
+			}
+			//else document.querySelector('#mno1').textContent = "";			
+
+			//Capcha Validation
+			else if (cap1 == "") {
+				document.querySelector('#capcha2').textContent = "Please Enter the Capcha";
+				return false;
+			}
+			else if (cap1 !== document.querySelector('#capcha1').textContent) {
+				document.querySelector('#capcha2').textContent = "Invalid Capcha Code";
+				return false;
+			}
+			//else document.querySelector('#capcha2').textContent = "";
+
+			//DOB Validation
+			else if (isNaN(document.querySelector('#option1').value) == true) {
+				document.querySelector('#dob').textContent = "Please Enter the Valid DOB"
+				return false;
+			}
+
+			//if (isNaN(document.querySelector('#option2').value==true) document.querySelector('#dob').textContent = "Please Enter the Valid DOB";
+			//else document.querySelector('#dob').textContent = ""
+			else {
+				alert('Successful')
+				return true;
+
+			}
+
+
+
+		}
+	</script>
+</head>
+
+<body onload="getOTP()">
+	<div id="main">
+
+		<form name="frm" onsubmit="return signUp()">
+			<div id="container" name="cont">
+				<h1>Demo User Login Page</h1>
+
+				<h3>Validation Using Javascript</h3>
+				<p id="demo"></p><br>
+				<input type="text" id="firstName" name="fname" class="textbox" placeholder="First Name">
+
+				<input type="text" id="lastName" name="lname" id="textbox" class="textbox" placeholder="Last Name"><br>
+				<p id="fname"></p><br>
+
+				<input type="radio" class="gend" name="gender" value="male"> Male
+
+				<input type="radio" class="gend" name="gender" value="female"> Female<br>
+				<p id="gender"></p><br>
+
+				<input type="email" name="email_1" class="email" placeholder="yourmail@example.com"><br><br>
+				<input type="email" name="email_2" class="email" placeholder="Re-enter your mail id"><br>
+				<p id="email_2"></p><br>
+
+				Password<br>
+				<input type="password" name="fpass1" class="pass"><br>
+				<p id="pass1"></p><br>
+				Re-enter Password<br>
+				<input type="password" name="spass2" class="pass"><br>
+				<p id="pass2"></p><br><br>
+
+				<input type="text" name="mno" id="mobile" class="pass" placeholder="Mobile Number"><br>
+				<p id="mno1"></p><br>
+
+				<p id="capcha1"></p><br>
+				<input type="button" id="ref" value="Refress" onclick="getOTP()"><br><br>
+
+				<input type="text" name="capcha" class="textbox" placeholder="Case Sensitive"><br>
+				<p id="capcha2"></p><br><br>
+
+				<p id="DOB">Birthday</p><br>
+				<select id="option1" name="dd">
+					<option>DD</option>
+					<option value="01">01</option>
+					<option value="02">02</option>
+					<option value="03">03</option>
+					<option value="04">04</option>
+					<option value="05">05</option>
+					<option value="06">06</option>
+					<option value="07">07</option>
+					<option value="08">08</option>
+					<option value="09">09</option>
+					<option value="10">10</option>
+				</select>
+				<select id="option2" name="mm">
+					<option>MM</option>
+					<option value="Jan">01</option>
+					<option value="Feb">02</option>
+					<option value="Mar">03</option>
+					<option value="Apr">04</option>
+					<option value="May">05</option>
+					<option value="Jun">06</option>
+					<option value="Jul">07</option>
+					<option value="Aug">08</option>
+					<option value="Sep">09</option>
+					<option value="Oct">10</option>
+					<option value="Nov">11</option>
+					<option value="Dec">12</option>
+				</select>
+				<select id="option3" name="yy">
+					<option>YYYY</option>
+					<option value="01">2001</option>
+					<option value="02">2002</option>
+					<option value="03">2003</option>
+					<option value="04">2004</option>
+					<option value="05">2005</option>
+					<option value="06">2006</option>
+					<option value="07">2007</option>
+					<option value="08">2008</option>
+					<option value="09">2009</option>
+					<option value="10">2010</option>
+				</select><br>
+				<p id="dob"></p><br><br>
+				<input type="submit" id="signup" value="Sign Up">
+			</div>
+			<form>
+
+	</div>
+</body>
+
+</html>

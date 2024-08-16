@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested If-Else</title>
+</head>
+
+<body>
+    <script>
+        let a = Number(prompt("Enter first Number"))
+        let b = Number(prompt("Enter second Number"))
+        let c = Number(prompt("Enter third Number"))
+
+        document.write("A = " + a + "<br>")
+        document.write("B = " + b + "<br>")
+        document.write("C = " + c + "<br>")
+
+        if (a > b) {
+            if (a > c) {
+                document.write("A is greater")
+            }
+            else {
+                document.write("C is greater")
+            }
+        }
+        else // b>a
+        {
+            if (b > c) {
+                document.write("B is greater")
+            }
+            else {
+                document.write("C is greater")
+            }
+        }
+    </script>
+</body>
+
+</html>

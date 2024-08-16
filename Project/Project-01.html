@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Marksheet</title>
+</head>
+
+<body style="background-image:url('1.png');">
+	<center>
+		<h1>I-Tech Library</h1>
+	</center><br>
+	<hr color="red">
+	<form name="frm">
+		<fieldset>
+			<legend>Menu</legend>
+			Select Your Book Genre :
+			<select name="it">
+				<option>--your selection--</option>
+				<option value="Encyclopedia">Encyclopedia - Rs. 5000/-</option>
+				<option value="IT">IT - Rs. 3500/-</option>
+				<option value="Web Programmer">Web Programmer - Rs. 8000/-</option>
+				<option value="Game Developer">Game Developer - Rs. 15000</option>
+			</select><br><br>
+			<input type="button" Value="Order" onclick="check()">
+		</fieldset>
+
+		Your Order Item : <input type="text" name="olList">
+		Quantity :<input type="number" name="quantity">
+		<input type="button" value="Calculate" onclick="calc()"><br><br>
+
+		Total Order value :<input type="text" name="oltotal"><br><br>
+		Tax : GST@18% Extra <input Type="text" name="tax"><br><br>
+		Total Billing Amount : <input type="text" name="basic">
+	</form>
+
+	<script>
+		var order, qty, ttl, tax;
+		function check() {
+			order = document.frm.it.value;
+			document.frm.olList.value = order;
+			//document.getElementById("demo").innerHTML=order
+
+		}
+		function calc() {
+			qty = parseInt(document.frm.quantity.value);
+
+
+			switch (order) {
+
+				case "Encyclopedia":
+					order = 5000;
+					break;
+				case "IT":
+					order = 3500;
+					break;
+				case "Web Programmer":
+					order = 8000;
+					break;
+				case "Game Developer":
+					order = 15000;
+					break;
+
+				default:
+					order = 0;
+					break;
+
+			}
+			ttl = order * qty;
+			document.frm.oltotal.value = ttl;
+			tax = ttl * 0.18;
+			document.frm.tax.value = tax;
+			basic = ttl + tax;
+			document.frm.basic.value = basic;
+		}
+	</script>
+</body>
+
+</html>

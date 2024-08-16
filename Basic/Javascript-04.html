@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Mraksheet</title>
+</head>
+
+<body>
+	<form name="frm">
+
+		<p>English : <input type="number" name="no1" id="no1"></p>
+		<p>Hindi : <input type="number" name="no2" id="no2"></p>
+		<p>Math : <input type="number" name="no3" id="no3"></p>
+		<p>Marathi : <input type="number" name="no4" id="no4"></p>
+		<p>Science : <input type="number" name="no5" id="no5"></p>
+		<p><input type="button" value="Submit" onclick="check()"></p>
+		<p>Total : <input type="number" id="total"></p>
+		<p>Percentage : <input type="number" id="per"></p>
+		<p>Grade : <input type="text" id="grade"></p>
+
+	</form>
+	<script type="text/javascript">
+
+		function check() {
+			let a = parseInt(document.getElementById("no1").value);
+			let b = parseInt(document.getElementById("no2").value);
+			let c = parseInt(document.getElementById("no3").value);
+			let d = parseInt(document.getElementById("no4").value);
+			let e = parseInt(document.getElementById("no5").value);
+			let total = a + b + c + d + e;
+			document.getElementById("total").value = total;
+
+			let per = total / 500 * 100;
+			document.getElementById("per").value = per;
+
+			if (per >= 90) {
+				document.getElementById('grade').value = "A";
+			}
+			else if (per >= 70) {
+				document.getElementById('grade').value = "B";
+			}
+			else if (per >= 45) {
+				document.getElementById('grade').value = "C";
+			}
+			else if (per >= 35) {
+				document.getElementById('grade').value = "D";
+			}
+			else {
+				document.getElementById('grade').value = "F";
+			}
+		}
+
+	</script>
+
+</body>
+
+</html>

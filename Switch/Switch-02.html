@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Hotel switch</title>
+	<script type="text/javascript">
+		var order, qty, ttl, txtgst, txtgrs;
+
+		function check() {
+			order = document.frm.item.value;
+			document.frm.txtorder.value = order;
+		}
+		function calc() {
+			qty = parseInt(document.frm.qty.value);
+			switch (order) {
+				case "chai":
+					price = 10;
+					break;
+
+				case "coffee":
+					price = 70;
+					break;
+
+				case "juice":
+					price = 100;
+					break;
+			}
+			ttl = price * qty;
+			document.frm.ttl.value = ttl;
+			txtgst = ttl * 0.1;
+			document.frm.txtgst.value = txtgst;
+			txtgrs = ttl + txtgst;
+			document.frm.txtgrs.value = txtgrs;
+		}
+	</script>
+</head>
+
+<body>
+	<center>
+		<h2>HOTEL SWITCH</h2>
+	</center>
+	<hr color="black">
+	<center>
+		<form name="frm">
+			<fieldset>
+				<legend>Menu</legend>
+				Select Your Item
+				<select name="item">
+					<option>...Select Your Order...</option>
+					<option value="chai">Chai 10 Rupees</option>
+					<option value="coffee">Coffee 70 Rupees</option>
+					<option value="juice"> Juice 100 Rupees</option>
+				</select><br><br>
+				<input type="button" value="check order" onclick="check()"><br><br>
+				Your order:-<input type="text" name="txtorder">
+				Quantity:-<input type="text" name="qty">
+				<input type="button" value="calcualate" onclick="calc()">
+			</fieldset><br><br>
+			Total:-<input type="text" name="ttl"><br><br>
+			GST 10%:-<input type="number" name="txtgst"><br><br>
+			Gross price:-<input type="number" name="txtgrs"><br><br>
+		</form>
+	</center>
+</body>
+
+</html>

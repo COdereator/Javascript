@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<style>
+		.filePDF {
+			display: none;
+		}
+
+		.modalmain {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.2);
+			position: fixed;
+			z-index: 1;
+			overflow: auto;
+			display: none;
+		}
+
+		.modal1 {
+			width: 200px;
+
+			border: 1px solid red;
+			background-color: lightgreen;
+			position: relative;
+			top: 150px;
+			left: 45%;
+
+		}
+	</style>
+	<script>
+		function mymodal() {
+			document.querySelector(".filePDF").style.display = "block";
+		}
+
+		function closer() {
+			document.querySelector(".modalmain").style.display = "none";
+		}
+		function closer1() {
+			document.querySelector(".filePDF").style.display = "none";
+		}
+		function ESCcloser(evn) {
+			if (evn.keyCode == 27) alert("hello")
+		}
+
+	</script>
+</head>
+
+<body onkeypress="ESCcloser(evn)">
+
+	<div class="modalmain">
+		<div class="modal1">
+			<div><button onclick="closer()">&times;</button></div>
+			<p>When the position property is given a value of absolute, the box is taken out of normal flow and no
+				longer affects the position of other elements on the page. (They act like it is not there.) The box
+				offset properties (topor bottom and left or right) specify where the element should appear in relation
+				to its containing element.</p>
+		</div>
+	</div>
+
+	<div class="header">
+		<button id="mybtn" onmouseover="mymodal()">Mouse Hover</button><br>
+
+	</div>
+	<div class="filePDF">
+		<div><button onclick="closer1()">&times;</button></div>
+		<embed src="duckett.pdf" width="500" height="500">
+
+	</div>
+</body>
+
+</html>

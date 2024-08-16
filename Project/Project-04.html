@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Student Marksheet</title>
+	<style>
+		#data1 {
+			width: 300px;
+			height: 200px;
+			float: left;
+		}
+
+		#data2 {
+			width: 200px;
+			height: 100px;
+			float: left;
+			margin-left: 40px;
+		}
+
+		#data3 {
+			width: 200px;
+			height: 100px;
+			float: left;
+			margin-left: 40px;
+		}
+
+		#data4 {
+			width: 200px;
+			float: left;
+			margin-left: 40px;
+		}
+
+		textarea {
+			height: 300px;
+			background: lightgreen;
+		}
+	</style>
+	<script>
+		var student = [];
+		var sClass = [];
+		var math = [];
+		var english = [];
+		var science = [];
+
+		function add() {
+			var name1 = document.frm1.name1.value;
+			var cls1 = document.frm1.cls.value;
+			var sub1 = document.frm1.math.value;
+			var sub2 = document.frm1.eng.value;
+			var sub3 = document.frm1.sci.value;
+			student.push(name1);
+			sClass.push(cls1);
+			math.push(sub1);
+			english.push(sub2);
+			science.push(sub3);
+
+			document.frm4.txtarea.value = `Student Name : ${student} \n Class : ${sClass} \n Subject Math : ${math} \n Subject English : ${english} \n Subject Science : ${science}\n`
+			//Set Focus to text box
+			document.frm1.name1.value = ""
+			document.getElementById("name1").focus();
+			document.frm1.cls.value = ""
+			document.frm1.math.value = ""
+			document.frm1.eng.value = ""
+			document.frm1.sci.value = ""
+		}
+
+		function srch() {
+			var name2 = document.frm2.name2.value;
+			var k = 0;
+			for (i = 0; i < student.length; i++) {
+
+				if (student[i] == name2) {
+					k = 1;
+					break;
+				}
+
+			}
+			if (k == 1) {
+				document.frm1.name1.value = student[i]
+				document.frm1.cls.value = sClass[i]
+				document.frm1.math.value = math[i]
+				document.frm1.eng.value = english[i]
+				document.frm1.sci.value = science[i]
+
+				/*document.frm4.txtarea.value=`Student Name : ${student} \n Class : ${sClass} \n Subject Math : ${math} \n Subject English : ${english} \n Subject Science : ${science}\n`
+				//set focus
+				document.frm1.name2.value="";
+				document.getElementById("name2").focus();
+				}
+				else{
+				document.frm1.name2.value="NO DATA FOUND";*/
+			}
+		}
+		function delt() {
+			var name3 = document.frm3.name3.value;
+
+			for (i = 0; i < student.length; i++) {
+				if (student[i] == name3) {
+					delete student[i];
+					delete sClass[i];
+					delete math[i];
+					delete english[i];
+					delete science[i];
+					break;
+				}
+			}
+			document.frm1.name1.value = "DATA DELETED SUCCESSFULLY!"
+			document.frm4.txtarea.value = `Student Name : ${student} \n Class : ${sClass} \n Subject Math : ${math} \n Subject English : ${english} \n Subject Science : ${science}\n`
+			document.frm1.name3.value = "";
+			document.getElementById("name3").focus();
+		}
+
+	</script>
+</head>
+
+<body>
+
+	<center>
+		<h1>Student MarkSheet</h1>
+		<hr>
+	</center>
+	<div id="data1">
+		<form name="frm1">
+			<fieldset>
+				<legend>Student details</legend>
+				Student Name : &nbsp
+				<input type="text" name="name1" id="name1" id="name1"><br><br>
+				Class : &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="text" name="cls"><br><br>
+				<hr>
+				Math : &nbsp&nbsp&nbsp&nbsp&nbsp
+				<input type="number" name="math"><br><br>
+				English : &nbsp
+				<input type="number" name="eng"><br><br>
+				Science : &nbsp
+				<input type="number" name="sci"><br><br>
+				<input type="button" value="Add Details" onClick="add()">
+
+			</fieldset>
+		</form>
+	</div>
+
+
+	<div id="data2">
+		<form name="frm2">
+			<fieldset>
+				<legend>Search Details</legend>
+				<input type="text" name="name2" id="name2" placeholder="Student full Name" required> <br><br>
+				<input type="button" value="Search" onclick="srch()">
+
+			</fieldset>
+		</form>
+	</div>
+
+
+	<div id="data3">
+		<form name="frm3">
+			<fieldset>
+				<legend>Detele Details</legend>
+				<input type="text" name="name3" id="name3" placeholder="Student full Name"><br><br>
+				<input type="button" value="Delete" onclick="delt()">
+			</fieldset>
+		</form>
+	</div>
+
+
+	<div id="data4">
+		<form name="frm4">
+			<fieldset>
+				<legend>Student Details</legend>
+				<textarea name="txtarea"></textarea>
+
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+
+</html>

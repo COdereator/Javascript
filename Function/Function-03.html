@@ -1,0 +1,75 @@
+<html>
+
+<head>
+	<title>User Logni</title>
+	<script>
+		function valid1() {
+			if (document.frm.id.value.length <= 3) {
+				//alert ("User ID should be More than 4 Charactor");
+				document.getElementById("user1").innerHTML = "User ID should be More than 4 Charactor";
+			}
+			else document.getElementById("user1").innerHTML = "";
+
+		}
+		function valid2() {
+
+			if (document.frm.pass.value.length <= 7) {
+				//alert ("Passward should be More than 8 Charactor");
+				document.getElementById("pass1").innerHTML = "Passward should be More than 8 Charactor";
+			}
+			else document.getElementById("pass1").innerHTML = "";
+		}
+		function login() {
+			var a, b, c, d, e;
+			a = "asdf";
+			b = "12345678";
+			c = (document.frm.id.value);
+			d = (document.frm.pass.value);
+
+			if (c == a && d == b) {
+				alert("Login Successfull")
+			}
+			else {
+				alert("Student ID or Password is incorrect")
+			}
+
+		}
+
+		function idchanger() {
+			if (document.frm.id.value.length <= 3) {
+				document.getElementById("fld1").id = "fld2"
+				document.getElementById("demo1").innerHTML = "Fieldset id changed"
+			}
+
+		}
+	</script>
+	<style>
+		#fld1 {
+			background-color: lightyellow;
+		}
+
+		#fld2 {
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+
+<body>
+	<center>Student Login Page</center>
+	<hr>
+	<form name="frm">
+		<fieldset id="fld1">
+			<legend>Student Login</legend>
+			Student ID <input type="text" name="id" id="name()" onkeyup="valid1()"><br><br>
+			<p id="user1"></p>
+			Password <input type="password" name="pass" onkeyup="valid2()"><br><br>
+			<p id="pass1"></p>
+			<input type="button" value="Login" onclick="login()">
+			<input type="reset" value="Reset" onclick="idchanger()">
+			<p id="demo1"></p>
+
+		</fieldset>
+	</form>
+</body>
+
+</html>
