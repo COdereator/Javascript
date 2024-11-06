@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ArrayFunction</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		
+		let array1 = [ 1,2,3,4,5 ]
+		let array2 = [ 1,2,3,4,5 ]
+
+		// Convert array into string
+		console.log("toString : "+array1.toString())
+
+		// Join * with all elements 
+		console.log("Join : "+array1.join(" * "))
+
+		// Delete Last element from the array 
+		console.log("Pop : "+array1.pop())
+
+		// Add element in last 
+		console.log("Push : "+array1.push(6))
+
+		// Delete element from first 
+		console.log("Shift : "+array1.shift())
+
+		// Add element in first 
+		console.log("Unshift : "+array1.unshift(1))
+
+		// Joint two or more array 
+		console.log("Concat : "+array1.concat(array2))
+
+		// slice(startIndex , endIndex)
+		console.log("Slice : "+array1.slice(2,4))
+
+		// splice(index , delete , add)
+		console.log("Splice : "+array1.splice(1,1,22))
+
+		array1.map((array,index)=>{
+			console.log(`Element at ${index} is ${array}`)
+		})
+
+	</script>
+
+</body>
+</html>
